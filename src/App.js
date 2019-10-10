@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import Contact from './components/Contact';
+import Contact from './components/Contact/Contact';
+import Contactlist from './components/Contactlist/Contactlist'
+
 
 let users = [{
   avatar:"https://randomuser.me/api/portraits/women/28.jpg",
@@ -14,19 +16,20 @@ let users = [{
   avatar: "https://randomuser.me/api/portraits/men/72.jpg",
   name: "Toto JS",
   online: true
-
+},{
+  avatar: "https://randomuser.me/api/portraits/men/76.jpg",
+  name: "BG du 92",
+  online: false
+},{
+  avatar: "https://randomuser.me/api/portraits/men/72.jpg",
+  name: "Georgette Pink",
+  online: true
 }]
-
-
 
 function App() {
   return (
     <div className="App">
-      {users.map((user) => {
-          return (
-            <Contact avatar={user.avatar} name={user.name} online={user.online}/>
-          )
-        })}
+      <Contactlist contact={users}/>
     </div>
   );
 }
