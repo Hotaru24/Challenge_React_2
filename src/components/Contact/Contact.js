@@ -1,18 +1,36 @@
 import React from 'react';
 import './Contact.css';
 
-const Contact = (props) => {
+
+
+class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      online: props.online,
+    };
+  }
+  changeState = () => {
+    const newOnline = !(this.state.online);
+    this.setState({online: newOnline});
+  }
+  render() {
     return (
-    <figure className="Contact">
-        <img className="avatar" src={props.avatar} alt={props.name} />
+      <div className="Contact">
+        <img
+          className="avatar"
+          src={this.props.avatar}
+          alt={this.props.name}/>
         <div>
-            <h4 className="name">{props.name}</h4> 
-            <div className="status">
-                {props.online ? <div className="status-online">{props.online}</div> : <div className="status-offline">{props.online}</div>}
-                <p className="status-text">{props.online ? "Online" : "Offline"}</p>
-            </div>
+          <h4 className="name">{this.props.name}</h4>
+          <div className="status" onClick={this.changeState}>
+            <p className={this.state.online ? "status-online" : "status-offline"}></p>
+            <p className="status-text">{this.state.online ? "online" : "offline"}</p>
+          </div>
         </div>
-    </figure>
-  );
+      </div>
+    );
+  }
 }
+
 export default Contact;

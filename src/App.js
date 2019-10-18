@@ -21,7 +21,7 @@ let users = [{
   name: "BG du 92",
   online: false
 },{
-  avatar: "https://randomuser.me/api/portraits/men/72.jpg",
+  avatar: "https://randomuser.me/api/portraits/women/32.jpg",
   name: "Georgette Pink",
   online: true
 }]
